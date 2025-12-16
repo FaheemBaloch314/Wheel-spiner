@@ -1,0 +1,268 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* ================= LEFT SIDE ================= */
+.left-side {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.left-side:hover {
+  transform: scale(1.03);
+}
+
+/* HEADINGS */
+.left-side h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 25px;
+}
+
+.left-side h3 {
+  margin-top: 30px;
+  font-size: 26px;
+  color: #222;
+}
+
+/* INPUT + BUTTON */
+.left-side input {
+  width: 70%;
+  height: 45px;
+  outline: none;
+  padding: 10px 15px;
+  margin-top: 20px;
+  border: 2px solid #36d1dc;
+  border-radius: 18px;
+  font-size: 17px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.left-side input:focus {
+  border-color: #ff6f61;
+  box-shadow: 0 0 15px rgba(255,111,97,0.5);
+  animation: inputGlow 1s infinite alternate;
+}
+
+@keyframes inputGlow {
+  0% { box-shadow: 0 0 10px rgba(255,111,97,0.3); }
+  100% { box-shadow: 0 0 25px rgba(255,111,97,0.7); }
+}
+
+.left-side button {
+  width: 110px;
+  height: 45px;
+  margin-left: 15px;
+  background: linear-gradient(45deg, #36d1dc, #5b86e5);
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.left-side button:hover {
+  transform: scale(1.15) rotate(-3deg);
+  background: linear-gradient(45deg, #5b86e5, #36d1dc);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  animation: buttonBounce 0.5s;
+}
+
+@keyframes buttonBounce {
+  0% { transform: scale(1.1) rotate(-3deg); }
+  50% { transform: scale(1.18) rotate(-3deg); }
+  100% { transform: scale(1.15) rotate(-3deg); }
+}
+
+/* ================= NAME LIST ================= */
+.name-list {
+  counter-reset: item;
+  margin-top: 25px;
+  width: 100%;
+}
+
+.name-list li {
+  counter-increment: item;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 12px 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.name-list li::before {
+  content: "✨ " counter(item) ". ";
+  font-weight: bold;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.name-list li:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: listGlow 0.8s alternate infinite;
+}
+
+@keyframes listGlow {
+  0% { box-shadow: 0 6px 15px rgba(255,255,255,0.2); }
+  100% { box-shadow: 0 6px 25px rgba(255,255,255,0.6); }
+}
+
+/* DELETE ICON */
+.delete-icon {
+  color: white;
+  background-color: #ff4b5c;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.delete-icon:hover {
+  transform: scale(1.4) rotate(20deg);
+  background-color: #d9364f;
+  box-shadow: 0 5px 15px rgba(255,0,50,0.5);
+  animation: deletePop 0.5s;
+}
+
+@keyframes deletePop {
+  0% { transform: scale(1.2) rotate(15deg); }
+  50% { transform: scale(1.45) rotate(20deg); }
+  100% { transform: scale(1.4) rotate(20deg); }
+}
+
+/* ================= WINNER BOX ================= */
+.winner-box {
+  margin-top: 30px;
+  padding: 18px;
+  width: 100%;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: #fff;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: glow 1.5s infinite alternate;
+}
+
+.winner-box::before {
+  content: "🏆🎉 ";
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.9); }
+  100% { box-shadow: 0 0 45px rgba(255, 255, 255, 1); }
+}
+
+/* ================= RIGHT SIDE ================= */
+.right-side {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fddb92, #d1fdff);
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  padding: 30px;
+}
+
+.right-side h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+  color: #222;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+/* ================= SPIN BUTTON ================= */
+.spin-btn {
+  margin-top: 20px;
+  width: 180px;
+  height: 55px;
+  font-size: 20px;
+  background: linear-gradient(45deg, #f7971e, #ffd200);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.spin-btn:hover {
+  transform: scale(1.15) rotate(-2deg);
+  background: linear-gradient(45deg, #ffd200, #f7971e);
+  box-shadow: 0 10px 25px rgba(255,200,0,0.6);
+  animation: spinGlow 0.8s alternate infinite;
+}
+
+@keyframes spinGlow {
+  0% { box-shadow: 0 6px 15px rgba(255,200,0,0.4); }
+  100% { box-shadow: 0 10px 35px rgba(255,255,0,0.8); }
+}
+
+/* ================= REACT CUSTOM WHEEL ================= */
+.react-custom-roulette-wheel {
+  border-radius: 50% !important;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.3) !important;
+  transition: transform 1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.react-custom-roulette-text {
+  font-weight: bold !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px !important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .left-side, .right-side {
+    width: 95%;
+    margin-bottom: 20px;
+  }
+}
